@@ -1,0 +1,335 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    background-color: #111;
+    border-radius: .5em;
+}
+
+#header1 {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 1.1em;
+    background-color: #000;
+    font-family: monospace;
+    font-size: 1em;
+    line-height: 1.1em;
+    text-align: center;
+    color: #666;
+}
+
+#header2 {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 1em;
+    background-color: #000;
+    font-family: monospace;
+    font-size: 3em;
+    line-height: 1em;
+    text-align: center;
+    color: #999;
+}
+
+#dashboard {
+    position: relative;
+    display: block;
+    margin: 1em auto;
+    width: 95%;
+    overflow: auto;
+    background-color: #222;
+    border-radius: inherit;
+    transition: all .3s ease-in-out;
+}
+
+.dashPanel {
+    position: relative;
+    display: block;
+    float: left;
+    margin: 1em;
+    min-width: 20em;
+    max-width: 64em;
+    min-height: 15em;
+    max-height: 49em;
+    resize: both;
+    overflow: hidden;
+    background-color: #111;
+    border-radius: 0.5em;
+    animation: paneladd 1s 1 ease-in-out;
+}
+
+@keyframes paneladd {
+    from {
+        width: 20em;
+        height: 15em;
+        overflow: hidden;
+        background-color: #333;
+        border-width: .1em;
+        border-radius: inherit;
+        min-height: 2em;
+    }
+    25% {
+        height: 2em;
+    }
+    75% {
+        min-height: 2em;
+        height: 2em;
+        color: #000;
+    }
+    to {
+        min-height: 15em;
+    }
+}
+
+.dashPanelHeader {
+    position: relative;
+    display: block;
+    padding-left: .5em;
+    height: 2em;
+    background-color: #111;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #222;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 2em;
+    color: #fff;
+}
+
+#closeButton {
+    position: relative;
+    display: block;
+    float: right;
+    width: 2em;
+    height: 2em;
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: #222;
+    text-align: center;
+    line-height: 2em;
+    color: #333;
+    cursor: pointer;
+}
+
+.dashPanelMain {
+    width: inherit;
+    height: 100%;
+}
+
+iframe {
+    width: 100%;
+    height: 80%;
+}
+
+.dashPanelFooter {
+    min-height: 1em;
+    max-height: 5em;
+    margin: 1em;
+}
+
+.setupPanel {
+    position: relative;
+    display: block;
+    float: left;
+    margin: 1em;
+    width: 20em;
+    height: 15em;
+    overflow: hidden;
+    background-color: #333;
+    border-width: .1em;
+    border-radius: inherit;
+    animation: setupadd 1s 1 ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+@keyframes setupadd {
+    from {
+        overflow: hidden;
+        width: 0em;
+        height: 2em;
+    }
+    50% {
+        overflow: hidden;
+        width: 20em;
+        height: 2em;
+    }
+    to {
+        overflow: hidden;
+        width: 20em;
+        height: 15em;
+    }
+}
+
+.row {
+    overflow-x: hidden;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    color: #fff;
+    line-height: .7em;
+    max-width: 20em;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.row span {
+    position: relative;
+    display: inline-block;
+    margin-top: 2.5em;
+}
+
+.balloon {
+    display: inline-block;
+    width: 19.5em;
+    padding: 10px 0 10px 15px;
+    font-family: monospace;
+    font-weight: 400;
+    color: #fff;
+    background: #555;
+    border: 0;
+    border-radius: 3px;
+    outline: 0;
+    text-indent: 60px;
+    transition: all .3s ease-in-out;
+}
+
+.balloon::-webkit-input-placeholder {
+    color: #555;
+    text-indent: 0;
+    font-weight: 300;
+}
+
+.balloon+label {
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    bottom: 8px;
+    padding: 5px 15px;
+    color: #aaa;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all .3s ease-in-out;
+    border-radius: 3px;
+}
+
+.balloon+label:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    top: 100%;
+    left: 50%;
+    margin-left: -3px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    transition: all .3s ease-in-out;
+}
+
+.balloon:focus,
+.balloon:active {
+    color: #222;
+    text-indent: 0;
+    background: #fff;
+}
+
+.balloon:focus::-webkit-input-placeholder,
+.balloon:active::-webkit-input-placeholder {
+    color: #555;
+}
+
+.balloon:focus+label,
+.balloon:active+label {
+    color: #fff;
+    background: #555;
+    transform: translateY(-40px);
+}
+
+.balloon:focus+label:after,
+.balloon:active+label:after {
+    border-top: 5px solid #555;
+}
+
+.button {
+    position: relative;
+    display: block;
+    float: right;
+    margin: 1em;
+    top: 0em;
+    right: .75em;
+    padding: .5em;
+    width: 3em;
+    border-radius: 0.3em;
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.8em;
+    text-align: center;
+    line-height: 1.25em;
+    color: #fff;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    transition: all .2s ease;
+}
+
+.button:hover {
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+#acceptButton {
+    background-color: rgb(96, 192, 96);
+}
+
+#acceptButton:hover {
+    background-color: rgb(128, 224, 128);
+}
+
+#acceptButton:active {
+    background-color: rgb(64, 160, 64);
+}
+#newPanel {
+    position: relative;
+    display: block;
+    float: left;
+    margin: 1em;
+    padding: 0em;
+    width: 20em;
+    height: 15em;
+    border-width: .1em;
+    border-radius: .5em;
+    border-style: solid;
+    border-color: #333;
+    fill-opacity: 0.1;
+    transition: all .2s ease;
+}
+
+#newPanel:hover {
+    background-size: 24px, 24px;
+    border-radius: 1em;
+    border-width: .1em;
+    border-color: #444;
+    color: #444;
+    cursor: pointer;
+    fill-opacity: 0.2;
+    transition: all .5s ease;
+}
+
+#newPanel:active {
+    transition: all .2s ease;
+}
+
+#icon_add {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 2em;
+    height: inherit;
+    fill-opacity: inherit;
+    fill: #fff;
+}
