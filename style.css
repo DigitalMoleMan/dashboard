@@ -6,7 +6,7 @@
 body {
     position: relative;
     display: block;
-    margin: 0 auto;
+    margin: 0;
     background-color: #111;
     border-radius: .5em;
 }
@@ -41,7 +41,9 @@ body {
     position: relative;
     display: block;
     margin: 1em auto;
-    width: 95%;
+    width: 98%;
+    min-width: 22em;
+    max-width: 110em;
     overflow: auto;
     background-color: #222;
     border-radius: inherit;
@@ -100,7 +102,7 @@ body {
     line-height: 2em;
     color: #fff;
     transition: all .5s ease-in-out;
-    animation: headerChange .5s ease-in-out;
+    animation: headerChange 1s ease-in-out;
 }
 
 @keyframes headerChange {
@@ -113,6 +115,41 @@ body {
     100% {
         color: #fff;
     }
+}
+
+#optionsButton {
+    position: relative;
+    display: block;
+    float: right;
+    width: 2em;
+    height: 2em;
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: #222;
+    text-align: center;
+    line-height: 2.1em;
+    color: #333;
+    cursor: pointer;
+    animation: optionsIn 1s ease-in-out;
+}
+
+@keyframes optionsIn{
+    0%{
+        width: 0em;
+        color: #111;
+    }
+    50%{
+        width: 2em;
+        color: #111;
+    }
+    100%{
+        width: 2em;
+        color: #333;
+    }
+}
+
+#optionsButton:hover{
+    color: #555;
 }
 
 #closeButton {
@@ -129,6 +166,20 @@ body {
     color: #333;
     cursor: pointer;
 }
+
+#closeButton:hover{
+    color: #555;
+}
+
+@keyframes closePanel{
+    0%{
+        height: 15em;
+    }
+    50%{
+        height: 2em;
+    }
+}
+
 
 .dashPanelMain {
     width: inherit;
@@ -270,6 +321,10 @@ iframe {
     border-top: 5px solid #555;
 }
 
+#embed {
+    overflow: scroll;
+}
+
 .button {
     position: relative;
     display: block;
@@ -285,25 +340,24 @@ iframe {
     text-align: center;
     line-height: 1.25em;
     color: #fff;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
-    transition: all .2s ease;
-}
-
-.button:hover {
-    cursor: pointer;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
     transition: all .2s ease;
 }
 
 #acceptButton {
-    background-color: rgb(96, 192, 96);
+    background-color: #444;
+    transition: all .2s ease;
 }
 
 #acceptButton:hover {
-    background-color: rgb(128, 224, 128);
+    background-color: #555;
+    cursor: pointer;
 }
 
 #acceptButton:active {
-    background-color: rgb(64, 160, 64);
+    background-color: #333;
+    color: #333;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
 
 #newPanel {
@@ -324,7 +378,6 @@ iframe {
 
 #newPanel:hover {
     background-size: 24px, 24px;
-    border-radius: 1em;
     border-width: .1em;
     border-color: #444;
     color: #444;
@@ -334,6 +387,7 @@ iframe {
 }
 
 #newPanel:active {
+    border-color: #555;
     transition: all .2s ease;
 }
 
@@ -343,6 +397,21 @@ iframe {
     margin: 0 auto;
     width: 2em;
     height: inherit;
-    fill-opacity: inherit;
+    fill-opacity: 0.1;
     fill: #fff;
+    transition: all .2s ease;
+}
+
+#newPanel:hover #icon_add {
+    width: 2.25em;
+    height: inherit;
+    fill-opacity: .25;
+    transition: all .2s ease;
+}
+
+#newPanel:active #icon_add {
+    width: 1.75em;
+    height: inherit;
+    fill-opacity: .3;
+    transition: all .2s ease;
 }
