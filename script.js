@@ -2,7 +2,7 @@ var setupPanelID = 0;
 var dashPanelID = 0;
 
 function newPanel() {
-    var panel = '<div id="setupPanel' + setupPanelID + '" class="setupPanel"><div id="dashPanelHeader" class="dashPanelHeader">Setup<a id="closeButton" onclick="removePanel(`setupPanel'+ setupPanelID +'`)">🗙</a></div><div class="row"><span><input class="balloon" id="panelTitle' + setupPanelID + '" type="text" placeholder="Panel name"><label for="panelTitle">Title</label></span><span><input class="balloon" id="embed' + setupPanelID + '" type="text" placeholder="Paste HTML here"><label for="embed">Embed</label></span><a id="acceptButton" class="button" onclick="addPanel(document.getElementById(`panelTitle' + setupPanelID + '`).value, document.getElementById(`embed' + setupPanelID + '`).value, `setupPanel' + setupPanelID + '`);">add</a></div></div>'
+    var panel = '<div id="setupPanel' + setupPanelID + '" class="setupPanel"><div id="dashPanelHeader" class="dashPanelHeader">Setup<a id="closeButton"  onclick="removePanel(`setupPanel'+ setupPanelID +'`)">🗙</a></div><div class="row"><span><input class="balloon" id="panelTitle' + setupPanelID + '" type="text" placeholder="Panel name"><label for="panelTitle">Title</label></span><span><input class="balloon" id="embed' + setupPanelID + '" type="text" placeholder="Paste HTML here"><label for="embed">Embed</label></span><a id="acceptButton" class="button" onclick="addPanel(document.getElementById(`panelTitle' + setupPanelID + '`).value, document.getElementById(`embed' + setupPanelID + '`).value, `setupPanel' + setupPanelID + '`);">add</a></div></div>'
     $("#newPanel").before(panel);
     setupPanelID += 1;
 }

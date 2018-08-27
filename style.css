@@ -61,18 +61,18 @@ body {
     overflow: hidden;
     background-color: #111;
     border-radius: 0.5em;
-    animation: paneladd 1s 1 ease-in-out;
+    animation: dashpaneladd 1s ease-in-out;
 }
 
-@keyframes paneladd {
-    from {
+@keyframes dashpaneladd {
+    0% {
         width: 20em;
         height: 15em;
+        min-height: 2em;
         overflow: hidden;
         background-color: #333;
         border-width: .1em;
         border-radius: inherit;
-        min-height: 2em;
     }
     25% {
         height: 2em;
@@ -82,7 +82,7 @@ body {
         height: 2em;
         color: #000;
     }
-    to {
+    100% {
         min-height: 15em;
     }
 }
@@ -99,6 +99,20 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 2em;
     color: #fff;
+    transition: all .5s ease-in-out;
+    animation: headerChange .5s ease-in-out;
+}
+
+@keyframes headerChange {
+    0% {
+        color: #111;
+    }
+    50% {
+        color: #111;
+    }
+    100% {
+        color: #fff;
+    }
 }
 
 #closeButton {
@@ -128,7 +142,7 @@ iframe {
 
 .dashPanelFooter {
     min-height: 1em;
-    max-height: 5em;
+    max-height: 2em;
     margin: 1em;
 }
 
@@ -143,30 +157,28 @@ iframe {
     background-color: #333;
     border-width: .1em;
     border-radius: inherit;
-    animation: setupadd 1s 1 ease-in-out;
+    animation: setupadd .5s 1 ease-in-out;
     transition: all .3s ease-in-out;
 }
 
 @keyframes setupadd {
-    from {
-        overflow: hidden;
+    0% {
         width: 0em;
         height: 2em;
+        border-radius: 0em;
     }
     50% {
-        overflow: hidden;
         width: 20em;
         height: 2em;
     }
-    to {
-        overflow: hidden;
+    100% {
         width: 20em;
         height: 15em;
     }
 }
 
 .row {
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: "Open Sans", sans-serif;
     font-weight: 300;
     color: #fff;
@@ -293,20 +305,21 @@ iframe {
 #acceptButton:active {
     background-color: rgb(64, 160, 64);
 }
+
 #newPanel {
     position: relative;
     display: block;
     float: left;
     margin: 1em;
     padding: 0em;
-    width: 20em;
-    height: 15em;
+    width: 19.8em;
+    height: 14.8em;
     border-width: .1em;
     border-radius: .5em;
     border-style: solid;
     border-color: #333;
     fill-opacity: 0.1;
-    transition: all .2s ease;
+    transition: all .5s ease;
 }
 
 #newPanel:hover {
