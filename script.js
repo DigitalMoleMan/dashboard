@@ -9,7 +9,7 @@ function newPanel() {
 
 function addPanel(title, embed, panelId) {
     var panel = '<div id="dashPanel' + dashPanelID + '" class="dashPanel"><div id="dashPanelHeader" class="dashPanelHeader">' + title + '<a id="closeButton" onclick="removePanel(`dashPanel'+ dashPanelID +'`)">🗙</a><a id="optionsButton" onclick="openPanelOptions(`dashPanel'+ dashPanelID +'`)">⚙</a></div><div id="dashPanelMain' + dashPanelID + '" class="dashPanelMain">' + embed + '</div><div id="dashPanelFooter" class="dashPanelFooter"></div></div>'
-    $("#" + panelId).replaceWith(panel);
+    $("#" + panelId).replaceWith(panel);    
     dashPanelID += 1;
 }
 
